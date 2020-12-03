@@ -1,0 +1,28 @@
+﻿<Window x:Class="P6_4.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:P6_4"
+    Title="data converter" Height="266" Width="300"
+    >
+    <Window.Resources>
+        <local:CategoryToSourceConverter x:Key="cts"></local:CategoryToSourceConverter>
+        <local:StateToNullableBoolConverter x:Key="stnb"></local:StateToNullableBoolConverter>
+    </Window.Resources>
+    <!--数据绑定之类型转换-->
+    <StackPanel Background="LightBlue">
+        <ListBox x:Name="listBoxPlane" Height="160" Margin="5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Height="20" Source="{Binding Path=category, Converter={StaticResource cts}}"></Image>
+                        <TextBlock Text="{Binding Path=name}" Width="60" Margin="80,0"></TextBlock>
+                        <CheckBox IsThreeState="True" IsChecked="{Binding Path=state,Converter={StaticResource stnb}}"></CheckBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="buttonLoad" Content="Load" Height="25" Margin="5,0" Click="buttonLoad_Click"></Button>
+        <Button x:Name="buttonSave" Content="Save" Height="25" Margin="5,5" Click="buttonSave_Click"></Button>
+    </StackPanel>
+
+</Window>
