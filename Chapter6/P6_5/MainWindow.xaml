@@ -3,8 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:P6_5"
         Title="MainWindow" Height="450" Width="800">
-    <!--多路绑定-->
-    <Grid>
-
-    </Grid>
+    <!--多路绑定：textbox1和textbox2的内容相同，textbox2和textbox3的内容相同，且内容都不为空-->
+    <StackPanel Background="LightBlue">
+        <TextBox x:Name="textBox1" Height="32" Margin="5"></TextBox>
+        <TextBox x:Name="textBox2" Height="32" Margin="5"></TextBox>
+        <TextBox x:Name="textBox3" Height="32" Margin="5"></TextBox>
+        <TextBox x:Name="textBox4" Height="32" Margin="5"></TextBox>
+        <Button x:Name="button1" Content="Submit" Width="80" Margin="5"></Button>
+    </StackPanel>
 </Window>
