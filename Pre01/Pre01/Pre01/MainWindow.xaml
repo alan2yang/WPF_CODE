@@ -1,0 +1,45 @@
+﻿<Window x:Class="Pre01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel Background="White">
+        <TextBlock FontSize="16" FontWeight="Bold" DockPanel.Dock="Top" Margin="0,0,0,10">停靠面板属性</TextBlock>
+        <TextBlock DockPanel.Dock="Top" Margin="0,0,0,10" TextWrapping="Wrap">选择下面的ui元素及其停靠属性，观察ui元素在停靠控制面板中的位置</TextBlock>
+
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,10">
+            <TextBlock Margin="0,0,0,5">停靠</TextBlock>
+            <ComboBox Name="dockCombo" Width="60">
+                <ComboBoxItem Name="dockTop">顶部</ComboBoxItem>
+                <ComboBoxItem Name="dockBottom">底部</ComboBoxItem>
+                <ComboBoxItem Name="dockLeft">左边</ComboBoxItem>
+                <ComboBoxItem Name="dockRight">右边</ComboBoxItem>
+            </ComboBox>
+            
+            <TextBlock Margin="0,0,0,5">ui元素</TextBlock>
+            
+            <ComboBox Name="controlCombo" Width="60" SelectionChanged="controlCombo_SelectionChanged">
+                <ComboBoxItem Name="button1">按钮</ComboBoxItem>
+                <ComboBoxItem Name="blockText1">字符框</ComboBoxItem>
+                <ComboBoxItem Name="circle">圆</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Margin="5,0,0,5">LastChildFill</TextBlock>
+            <ComboBox Text="Is not open" Width="60" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Name="LastChildTrue">True</ComboBoxItem>
+                <ComboBoxItem Name="LastChildFalse">False</ComboBoxItem>
+            </ComboBox>
+            
+        </StackPanel>
+
+        <Border Background="LightGoldenrodYellow" BorderBrush="Black" BorderThickness="1">
+            <DockPanel Name="myDP">
+                <Button x:Name="btn" MinHeight="200" MinWidth="200" Background="GreenYellow" FontSize="20">按钮</Button>
+                <TextBlock Name="tb" MinHeight="200" MinWidth="200" Background="Cyan" FontSize="20">字符框</TextBlock>
+                <Ellipse Name="ellps" MinHeight="200" MinWidth="200" Stroke="Black" Fill="LightSkyBlue"></Ellipse>
+            </DockPanel>
+        </Border>
+        
+    </DockPanel>
+
+    
+</Window>
