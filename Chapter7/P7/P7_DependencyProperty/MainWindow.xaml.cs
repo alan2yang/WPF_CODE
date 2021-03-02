@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace P7_DependencyProperty
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Student student;
@@ -27,8 +24,9 @@ namespace P7_DependencyProperty
 
             student = new Student();
             Binding binding = new Binding("Text") { Source = textbox1 };
-            BindingOperations.SetBinding(student, Student.nameProperty, binding);  //控件实现SetBinding()方法，但其实其内部也是使用的BindingOperations.SetBinding()方法
-            
+            //BindingOperations.SetBinding(student, Student.nameProperty, binding);  //每个控件实现SetBinding()方法，但其实其内部也是使用的BindingOperations.SetBinding()方法
+            student.SetBinding(Student.nameProperty, binding);
+
         }
 
 
@@ -40,8 +38,8 @@ namespace P7_DependencyProperty
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var stu = new Student();
-            stu.SetValue(Student.nameProperty, this.source.Text);
-            this.target.Text = (string)stu.GetValue(Student.nameProperty);
+            stu.Name = this.source.Text;
+            this.target.Text = stu.Name;
 
         }
 
@@ -59,6 +57,19 @@ namespace P7_DependencyProperty
     public class Student : DependencyObject
     {
         public static readonly DependencyProperty nameProperty = DependencyProperty.Register("Name", typeof(String), typeof(Student));
+
+        //为依赖属性添加一个CLR属性外包装
+        public string Name
+        {
+            get { return (string)GetValue(nameProperty); }
+            set { SetValue(nameProperty,value); }
+        }
+
+        // 给Student添加SetBinding方法，使其与控件一致
+        public BindingExpressionBase SetBinding(DependencyProperty dp,BindingBase binding)
+        {
+            return BindingOperations.SetBinding(this, dp, binding);
+        }
 
 
 
