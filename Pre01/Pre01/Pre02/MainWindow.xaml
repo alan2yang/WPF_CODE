@@ -2,8 +2,23 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Pre02"
+        xmlns:my="clr-namespace:WpfControlLibrary1;assembly=WpfControlLibrary1"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
+        <my:UserControl1></my:UserControl1>
+        <my:UserControl1 Grid.Column="1"></my:UserControl1>
+        <my:UserControl1 Grid.Row="1"></my:UserControl1>
+        <my:UserControl1 Grid.Column="1" Grid.Row="1"></my:UserControl1>
+        
+            <!--<Button Content="hello world" Height="30" Width="100" Name="b1"></Button>-->
     </Grid>
 </Window>

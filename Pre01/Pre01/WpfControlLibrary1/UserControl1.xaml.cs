@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pre02
+namespace WpfControlLibrary1
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Interaction logic for UserControl1.xaml
+    /// </summary>
+    public partial class UserControl1 : UserControl
     {
-        public MainWindow()
+        public UserControl1()
         {
             InitializeComponent();
-            //this.b1.Click += B1_Click;
-            //this.b1.Click -= B1_Click;
-        }
-
-        private void B1_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("hello button clicked!");
         }
     }
 }
