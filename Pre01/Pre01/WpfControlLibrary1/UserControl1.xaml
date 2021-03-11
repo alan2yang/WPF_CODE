@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Width="200" Height="40">
     <Canvas Background="AliceBlue">
-        <Label Canvas.Left="12" Canvas.Top="12" Height="28" Content="test:" Padding="0"></Label>
-        <!--<Label Canvas.Left="12" Canvas.Top="12" Height="28" Content="tÄã:" Padding="0"></Label>-->  <!--ÖÐÎÄ×Ö·û±¨´í-->
+        <Label Canvas.Left="12" Canvas.Top="12" Height="28" Content="test:" Padding="0"></Label> 
         <TextBox Canvas.Right="12" Canvas.Top="12" Width="100" x:Name="input"></TextBox>
     </Canvas>
 </UserControl>

@@ -26,7 +26,7 @@ namespace Pre02
 
         private void B1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("hello button clicked!");
+            MessageBox.Show("你好 button clicked!");
         }
     }
 }

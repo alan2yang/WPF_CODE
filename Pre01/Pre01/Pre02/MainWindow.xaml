@@ -15,6 +15,7 @@
         </Grid.RowDefinitions>
 
         <my:UserControl1></my:UserControl1>
+        <TextBox Text="你好!         this is a test!"></TextBox>
         <my:UserControl1 Grid.Column="1"></my:UserControl1>
         <my:UserControl1 Grid.Row="1"></my:UserControl1>
         <my:UserControl1 Grid.Column="1" Grid.Row="1"></my:UserControl1>
