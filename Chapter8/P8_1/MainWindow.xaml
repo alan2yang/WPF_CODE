@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:P8_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid x:Name="gridRoot" Background="Lime" ButtonBase.Click="ButtonClicked">
+        <Grid x:Name="gridA" Margin="10" Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="canvasLeft" Background="Red" Margin="20">
+                <Button x:Name="buttonLeft" Content="left" Width="30" Height="100" Margin="20"></Button>
+            </Canvas>
+            <Canvas x:Name="canvasRight" Background="Yellow" Grid.Column="1" Margin="20">
+                <Button x:Name="buttonRight" Content="right" Width="30" Height="100" Margin="20"></Button>
+            </Canvas>
+        </Grid>
+
     </Grid>
 </Window>

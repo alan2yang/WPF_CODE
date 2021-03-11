@@ -23,6 +23,12 @@ namespace P8_1
         public MainWindow()
         {
             InitializeComponent();
+            //this.gridRoot.AddHandler(Button.ClickEvent,new RoutedEventHandler(this.ButtonClicked));
+        }
+
+        private void ButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"处理者：{(sender as FrameworkElement).Name}，发送者：{(e.OriginalSource as FrameworkElement).Name}");
         }
     }
 }
