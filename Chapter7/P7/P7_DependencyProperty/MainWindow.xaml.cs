@@ -52,6 +52,14 @@ namespace P7_DependencyProperty
         {
            MessageBox.Show(student.GetValue(Student.nameProperty).ToString());
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var stu = new Student();
+            School.SetNum(stu, "001");
+            string num = School.GetNum(stu);
+            MessageBox.Show(num);
+        }
     }
 
     public class Student : DependencyObject
@@ -61,7 +69,7 @@ namespace P7_DependencyProperty
         //为依赖属性添加一个CLR属性外包装
         public string Name
         {
-            get { return (string)GetValue(nameProperty); }
+            get { return (string)GetValue(nameProperty);}
             set { SetValue(nameProperty,value); }
         }
 
@@ -70,10 +78,27 @@ namespace P7_DependencyProperty
         {
             return BindingOperations.SetBinding(this, dp, binding);
         }
-
-
-
     }
 
+
+    public class School : DependencyObject
+    {
+        //被学校添加附加属性的对象也要是依赖对象
+        //学校获取学生对象的属性
+        public static string GetNum(DependencyObject obj)
+        {
+            return (string)obj.GetValue(NumProperty);
+        }
+
+        //给进入学校的学生对象添加属性
+        public static void SetNum(DependencyObject obj, string value)
+        {
+            obj.SetValue(NumProperty, value);
+        }
+
+        //附加属性：学号   PropertyMetadata("")指定默认值
+        public static readonly DependencyProperty NumProperty =DependencyProperty.RegisterAttached("Num", typeof(string), typeof(School), new PropertyMetadata(""));
+
+    }
 
 }
