@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace P8_2
 {
    /// <summary>
-   /// 自定义路由事件
+   /// 自定义路由事件:有些懵，看不懂
    /// </summary>
     public partial class MainWindow : Window
     {
