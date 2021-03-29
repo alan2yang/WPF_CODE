@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
+        <local:PhotoPathConverter x:Key="autoMaker2Path"></local:PhotoPathConverter>
         <DataTemplate x:Key="carDetailViewTemplate">
             <Border BorderBrush="Black" BorderThickness="1" CornerRadius="6">
                 <StackPanel Margin="5">
-                    <!--TODO:书写转换器-->
-                    <Image Source="{Binding Automaker,Converter={StaticResource } }" Width="400" Height="250"></Image>
+                    <Image Source="{Binding Automaker,Converter={StaticResource autoMaker2Path} }" Width="400" Height="250"></Image>
                     <StackPanel Orientation="Horizontal" Margin="5,0">
                         <TextBlock Text="Name:" FontWeight="Bold" FontSize="20"></TextBlock>
                         <TextBlock Text="{Binding Name}" FontSize="20" Margin="5,0"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5,0">
                         <TextBlock Text="Automaker:" FontWeight="Bold"></TextBlock>
-                        <TextBlock Text="{Binding Automamker}" Margin="5,0"></TextBlock>
+                        <TextBlock Text="{Binding Automaker}" Margin="5,0"></TextBlock>
                         <TextBlock Text="Year:" FontWeight="Bold"></TextBlock>
                         <TextBlock Text="{Binding Year}" Margin="5,0"></TextBlock>
                         <TextBlock Text="Top Speed:" FontWeight="Bold"></TextBlock>
@@ -27,9 +27,20 @@
                 </StackPanel>
             </Border>
         </DataTemplate>
+        <DataTemplate x:Key="carListItemTemplate">
+            <Grid Margin="2">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding Automaker, Converter={StaticResource autoMaker2Path}}" Grid.RowSpan="3" Width="64" Height="64"></Image>
+                    <StackPanel Margin="5,10">
+                        <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold"></TextBlock>
+                        <TextBlock Text="{Binding Year}" FontSize="14"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
     </Window.Resources>
     <StackPanel Orientation="Horizontal" Margin="5">
-        <UserControl ContentTemplate="{StaticResource }"></UserControl>
-        <ListBox></ListBox>
+        <UserControl ContentTemplate="{StaticResource carDetailViewTemplate}" Content="{Binding SelectedItem, ElementName=listBoxCars}"></UserControl>
+        <ListBox x:Name="listBoxCars" Width="180" Margin="5,0" ItemTemplate="{StaticResource carListItemTemplate}"></ListBox>
     </StackPanel>
 </Window>

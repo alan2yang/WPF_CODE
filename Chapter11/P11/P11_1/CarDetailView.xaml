@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Border BorderBrush="Black" BorderThickness="1" CornerRadius="6">
         <StackPanel Margin="5">
-            <Image x:Name="imagePhoto" Width="40" Height="250"></Image>
+            <Image x:Name="imagePhoto" Width="400" Height="250"></Image>
             <StackPanel Orientation="Horizontal" Margin="5,0">
                 <TextBlock Text="Name:" FontWeight="Bold" FontSize="20"></TextBlock>
                 <TextBlock x:Name="textBlockName" FontSize="20" Margin="5,0"></TextBlock>

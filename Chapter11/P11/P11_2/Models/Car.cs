@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace P11_1.models
+namespace P11_2.models
 {
     public class Car
     {
